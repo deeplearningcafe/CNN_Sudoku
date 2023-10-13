@@ -3,3 +3,8 @@ __pycache__/
 solved/
 runs/
 models/
+
+# include the run of the best model and the best model
+!runs/Sudoku/2023-10-09_21.45.40-trn-CNNModel_BaseV8_newNorm/
+!runs/Sudoku/2023-10-09_21.45.40-val-CNNModel_BaseV8_newNorm/
+!models/Sudoku/2023-10-09_21.45.40_CNNModel_BaseV8_newNorm.best.state
