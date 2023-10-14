@@ -47,7 +47,6 @@ class TrainingApp:
                             help='Batch size for training',
                             default=500,
                             type=int)
-        """depending on the batch size, the loss changes but it should not be that way, because it returns the mean of the batch loss, not each element"""
         
         parser.add_argument('--epochs',
                             help='Number of epochs to train',
@@ -211,7 +210,7 @@ class TrainingApp:
             predictions = torch.argmax(outputs, dim=1)
             correct_predictions = 0
             
-            # this metrics are somewhat not real as the model starts with several numbers, around 35, so the even if the model
+            # this metrics are somewhat not real as the model starts with several numbers, around 20, so the even if the model
             # does not predict any number, it will still have 35/81=0.43 accuracy
             for i in range(len(outputs)):
                 correct_predictions += (predictions[i] == solutions[i]).sum()
@@ -261,6 +260,7 @@ class TrainingApp:
             
 
     def logMetrics(self, epoch, phase, batch_metrics, totalTrainingSamples_count):
+        # this is the average of each epoch, as it is doing the average of the batchs metrics
         avg_loss = float(batch_metrics[:, 0].sum()) / batch_metrics.shape[0]
         avg_accuracy = float(batch_metrics[:, 1].sum()) / batch_metrics.shape[0]
         avg_precision = float(batch_metrics[:, 2].sum()) / batch_metrics.shape[0]
@@ -273,6 +273,7 @@ class TrainingApp:
                 time, epoch, phase, avg_loss, avg_accuracy, avg_precision, avg_recall, avg_f1_score
             ))
         
+        # this loss is used for saving the best model
         loss_val = None
         if phase == "val":
             self.writer_val.add_scalar('Loss', avg_loss, totalTrainingSamples_count)
