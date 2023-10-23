@@ -18,6 +18,7 @@ This task can be likened to a k-dimensional classification problem where the mod
 - `dsets.py`：Creates the dataset.
 - `training.py`：Used for training, main file of the project
 - `models.py`: Includes all the models.
+- `play.py`: Input your own sudoku, for model testing。
 
 ## Training
 To set up training, adjust the path in `dsets.py` to point to the location where the dataset is stored. Afterwards, modify the tensorboard comments to monitor the training metrics. In your terminal, initiate training by running the following command:

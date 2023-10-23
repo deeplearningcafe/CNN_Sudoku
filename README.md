@@ -20,6 +20,7 @@
 - `dsets.py`：データセットを作るモジュール。
 - `training.py`：トレーニング用です。マインファイルである。
 - `models.py`: 全部のモデルは含まれている。
+- `play.py`: 自分の数独を入力出来る、テストようのファイル。
 
 ## トレーニング
 dsets.pyのパスを変えて、自分が持てるデータセットを決定する。その後tensorboardのコメントを自分の好みに変わって。ターミナルで python -m training.py を実行すると学習が始まります。
@@ -72,6 +73,12 @@ dsets.pyのパスを変えて、自分が持てるデータセットを決定す
 
 ## Author
 [fuwafuwamoemoekissaten](https://github.com/fuwafuwamoemoekissaten)
+
+zenn記事
+[数独と畳み込み深層学習](https://zenn.dev/fuwamoekissaten/articles/2b306e2c8f1871)
+
+youtube動画
+[数独の奥深さ：畳み込みニューラルネットワークの新たな挑戦](https://youtu.be/u2koAUhMSnM)
 
 ## References
 https://github.com/Kyubyong/sudoku
